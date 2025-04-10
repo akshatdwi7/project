@@ -51,7 +51,7 @@ function HomePage() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          src="/kevinRushProfile.jpg"
+          src="/kevinRushProfile.png"
           alt="Profile"
           className="w-40 h-40 rounded-full mb-8 object-cover border-4 border-blue-500/50 shadow-lg shadow-blue-500/20"
         />
