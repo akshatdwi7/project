@@ -139,9 +139,17 @@ function HomePage() {
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <ProjectCard
-              title="E-commerce App"
-              description="A full-featured React Native e-commerce application with real-time inventory management and secure payment processing."
-              tech={["React Native", "TypeScript", "Redux", "Stripe"]}
+              title="Screeno"
+              description="A Stock market analysis app that provides real-time data and insights, helping users make informed investment decisions, Can track their portfolio and get
+              personalized recommendations using AI."
+              tech={[
+                "React Native",
+                "TypeScript",
+                "Redux",
+                "Firebase",
+                "Chart.js",
+                "Stripe",
+              ]}
               image="/ss.png"
               delay={0}
             />
