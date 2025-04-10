@@ -50,7 +50,7 @@ function HomePage() {
         <motion.img
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          transition={{ type: "spring", stiffness: 200, damping: 30 }} // Smoother spring animation
           src="/kevinRushProfile.png"
           alt="Profile"
           className="w-40 h-40 rounded-full mb-8 object-cover border-4 border-blue-500/50 shadow-lg shadow-blue-500/20"
@@ -114,13 +114,13 @@ function HomePage() {
             Technical Skills
           </motion.h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <SkillCard icon={<Smartphone />} title="React Native" delay={0} />
-            <SkillCard icon={<Code2 />} title="TypeScript" delay={0.1} />
-            <SkillCard icon={<Github />} title="Git" delay={0.2} />
-            <SkillCard icon={<Database />} title="SQL" delay={0.3} />
-            <SkillCard icon={<Cloud />} title="AWS" delay={0.4} />
-            <SkillCard icon={<Terminal />} title="Node.js" delay={0.5} />
-            <SkillCard icon={<Globe />} title="REST APIs" delay={0.6} />
+            <SkillCard icon={<Smartphone />} title="React Native" delay={0.7} />
+            <SkillCard icon={<Code2 />} title="TypeScript" delay={0.7} />
+            <SkillCard icon={<Github />} title="Git" delay={0.7} />
+            <SkillCard icon={<Database />} title="SQL" delay={0.7} />
+            <SkillCard icon={<Cloud />} title="AWS" delay={0.7} />
+            <SkillCard icon={<Terminal />} title="Node.js" delay={0.7} />
+            <SkillCard icon={<Globe />} title="REST APIs" delay={0.7} />
             <SkillCard icon={<Code2 />} title="JavaScript" delay={0.7} />
           </div>
         </div>
@@ -133,6 +133,7 @@ function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }} // Smoother transition
             className="text-3xl font-bold mb-12 text-center"
           >
             Featured Projects
@@ -217,8 +218,8 @@ function SkillCard({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay }}
-      whileHover={{ scale: 1.05 }}
+      transition={{ delay, duration: 0.6, ease: "easeOut" }} // Smoother transition
+      whileHover={{ scale: 1.1 }}
       className="flex flex-col items-center p-6 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 hover:border-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-500/10"
     >
       <div className="text-blue-400 mb-4">{icon}</div>
@@ -245,7 +246,7 @@ function ProjectCard({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay }}
+      transition={{ delay, duration: 0.6, ease: "easeOut" }} // Smoother transition
       className="group relative overflow-hidden"
     >
       {/* Phone Frame */}
