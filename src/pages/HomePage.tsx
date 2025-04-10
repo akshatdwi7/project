@@ -13,6 +13,7 @@ import {
   Globe,
   ExternalLink,
   SquirrelIcon,
+  InstagramIcon,
 } from "lucide-react";
 
 function HomePage() {
@@ -59,31 +60,38 @@ function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+          <h1 className="text-5xl font-thin  font-serif mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
             Akshat Dwivedi
           </h1>
           <p className="text-xl text-blue-400 mb-6">React Native Developer</p>
           <div className="flex gap-4 mb-8 justify-center">
             <motion.a
               whileHover={{ scale: 1.1 }}
-              href="#"
+              href="https://github.com/akshatdwi7"
               className="hover:text-blue-400 transition-colors"
             >
               <Github size={24} />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.1 }}
-              href="#"
+              href="https://www.linkedin.com/in/akshat-dwivedi-2497622a2/"
               className="hover:text-blue-400 transition-colors"
             >
               <Linkedin size={24} />
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.1 }}
-              href="#"
+              href="https://x.com/Akshatdwi7"
               className="hover:text-blue-400 transition-colors"
             >
               <Twitter size={24} />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              href="https://www.instagram.com/nachosz/"
+              className="hover:text-blue-400 transition-colors"
+            >
+              <InstagramIcon size={24} />
             </motion.a>
           </div>
           <p className="max-w-2xl text-gray-300 mx-auto">
@@ -134,7 +142,7 @@ function HomePage() {
               title="E-commerce App"
               description="A full-featured React Native e-commerce application with real-time inventory management and secure payment processing."
               tech={["React Native", "TypeScript", "Redux", "Stripe"]}
-              image="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=800"
+              image="/ss.png"
               delay={0}
             />
             <ProjectCard
@@ -161,17 +169,17 @@ function HomePage() {
           >
             <h2 className="text-3xl font-bold mb-8">Let's Connect</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              I'm always interested in hearing about new projects and
-              opportunities. Feel free to reach out if you'd like to
+              I'm always interested in hearing about new projects and any form
+              of business ideas. Feel free to reach out if you'd like to
               collaborate!
             </p>
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="mailto:contact@example.com"
+              href="mailto:akshatdwi755@gmail.com"
               className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-8 py-3 rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/20"
             >
-              Get in Touch
+              Say Hi :)
             </motion.a>
           </motion.div>
         </div>
@@ -180,7 +188,7 @@ function HomePage() {
       {/* Footer */}
       <footer className="bg-gray-900/50 backdrop-blur-sm py-8">
         <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>© 2024 John Doe. All rights reserved.</p>
+          <p>© 2025 Akshat Dwivedi. All rights reserved.</p>
         </div>
       </footer>
     </div>
@@ -230,15 +238,15 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="group relative overflow-hidden rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-500/10"
+      className="group relative overflow-hidden"
     >
-      <div className="aspect-video overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+      {/* Phone Frame */}
+      <div className="relative aspect-[9/19] mx-auto w-full max-w-[300px] rounded-[2rem] overflow-hidden">
+        {/* Screen */}
+        <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
+
+      {/* Content */}
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
           {title}

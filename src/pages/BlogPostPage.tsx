@@ -1,17 +1,17 @@
-import React from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
-import { blogPosts } from './BlogPage';
+import React from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import { blogPosts } from "./BlogPage";
 
 function BlogPostPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     React.useEffect(() => {
-      navigate('/blog');
+      navigate("/blog");
     }, [navigate]);
     return null;
   }
@@ -21,9 +21,11 @@ function BlogPostPage() {
       {/* Navigation */}
       <nav className="bg-gray-900/50 backdrop-blur-sm fixed w-full z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold">JD</Link>
-          <Link 
-            to="/blog" 
+          <Link to="/" className="text-2xl font-bold">
+            JD
+          </Link>
+          <Link
+            to="/blog"
             className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
           >
             <ArrowLeft size={20} />
@@ -33,14 +35,17 @@ function BlogPostPage() {
       </nav>
 
       {/* Blog Post Content */}
-      <article className="container mx-auto px-4 pt-32 pb-16 max-w-4xl">
+      <article className="container mx-auto px-4 pt-32 pb-16 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
           {/* Header */}
-          <div className="mb-8">
-            <div className="flex gap-4 text-sm text-gray-400 mb-4">
+          <div className="mb-12 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+              {post.title}
+            </h1>
+            <div className="flex justify-center gap-4 text-sm text-gray-400 mb-6">
               <span className="flex items-center gap-1">
                 <Calendar size={16} />
                 {post.date}
@@ -50,12 +55,9 @@ function BlogPostPage() {
                 {post.readTime}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
-              {post.title}
-            </h1>
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap justify-center gap-2">
               {post.tags.map((tag, i) => (
-                <span 
+                <span
                   key={i}
                   className="flex items-center gap-1 text-sm px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20"
                 >
@@ -67,19 +69,21 @@ function BlogPostPage() {
           </div>
 
           {/* Featured Image */}
-          <div className="rounded-xl overflow-hidden mb-8">
-            <img 
-              src={post.image} 
+          <div className="rounded-xl overflow-hidden mb-12 shadow-lg shadow-blue-500/20">
+            <img
+              src={post.image}
               alt={post.title}
-              className="w-full h-[400px] object-cover"
+              className="w-full h-[500px] object-cover"
             />
           </div>
 
           {/* Content */}
-          <div className="prose prose-invert prose-lg max-w-none">
-            <p className="text-xl text-gray-300 leading-relaxed">
-              {post.content}
-            </p>
+          <div className="prose prose-invert prose-lg max-w-none leading-relaxed mx-auto">
+            {post.content.split("\n").map((paragraph, index) => (
+              <p key={index} className="mb-6">
+                {paragraph.trim()}
+              </p>
+            ))}
           </div>
         </motion.div>
       </article>

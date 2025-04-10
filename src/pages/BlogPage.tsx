@@ -135,44 +135,49 @@ function BlogPostCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="group bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-500/10"
+      className="group flex flex-col md:flex-row bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-500/10"
     >
-      <div className="aspect-video overflow-hidden">
+      {/* Image Section */}
+      <div className="md:w-1/3 overflow-hidden">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
-      <div className="p-6">
-        <div className="flex gap-4 text-sm text-gray-400 mb-4">
-          <span className="flex items-center gap-1">
-            <Calendar size={16} />
-            {date}
-          </span>
-          <span className="flex items-center gap-1">
-            <Clock size={16} />
-            {readTime}
-          </span>
-        </div>
-        <h2 className="text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors">
-          {title}
-        </h2>
-        <p className="text-gray-300 mb-4">{excerpt}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag, i) => (
-            <span
-              key={i}
-              className="flex items-center gap-1 text-sm px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20"
-            >
-              <Tag size={14} />
-              {tag}
+
+      {/* Content Section */}
+      <div className="p-6 md:w-2/3 flex flex-col justify-between">
+        <div>
+          <div className="flex gap-4 text-sm text-gray-400 mb-4">
+            <span className="flex items-center gap-1">
+              <Calendar size={16} />
+              {date}
             </span>
-          ))}
+            <span className="flex items-center gap-1">
+              <Clock size={16} />
+              {readTime}
+            </span>
+          </div>
+          <h2 className="text-2xl font-light mb-4 group-hover:text-blue-400 transition-colors">
+            {title}
+          </h2>
+          <p className="text-gray-300 mb-4 font-light">{excerpt}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tags.map((tag, i) => (
+              <span
+                key={i}
+                className="flex items-center gap-1 text-sm px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20"
+              >
+                <Tag size={14} />
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
         <Link
           to={`/blog/${slug}`}
-          className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+          className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-light"
         >
           Read More
           <ArrowLeft size={16} className="rotate-180" />
